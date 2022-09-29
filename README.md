@@ -39,6 +39,8 @@ function is able to be downloaded from GitHub:
 
 ## Data structure
 
+  - `data` folder contains the original datasets used for building the
+    training datasets.
   - `deepdirect_framework` folder contains the trained model weights and
     the model constructing functions.
   - `deepdirect_paper` folder contains codes for building and training
