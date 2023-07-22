@@ -4,7 +4,6 @@
 # deepdirect
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 Deepdirect is an in silico approach to generate mutations for protein
@@ -23,8 +22,8 @@ standard computer.
 The `deepdirect` model should be compatible with Windows, Mac, and Linux
 operating systems. The package has been tested on the following systems:
 
-  - Linux 3.10.0
-  - Windows 10
+- Linux 3.10.0
+- Windows 10
 
 ### Dependencies
 
@@ -39,28 +38,72 @@ function is able to be downloaded from GitHub:
 
 ## Data structure
 
-  - `data` folder contains the original datasets used for building the
-    training datasets.
-  - `deepdirect_framework` folder contains the trained model weights and
-    the model constructing functions.
-  - `deepdirect_paper` folder contains codes for building and training
-    models, and performing analysis in the deepdirect manuscript. The
-    file `ab_bind_data_extract.py` and `skempi_data_extract.py` contains
-    code for constructing training datasets for Deepdirect framework.
-    `train_step_1.py` contains code for training step 1 for the mutation
-    mutator. `final_model.py` contains code for training step 2 (final)
-    for the mutation mutator. `model_function.py` contains code for
-    constructing the Deepdirect framework.
-    `model_evaluation_application.py` contains code for model
-    evaluation, and teh application on Novavax-vaccine.
-    `evolution_analysis.py` contains code for performing evolution
-    analysis.
+- `data` folder contains the original datasets used for building the
+  training datasets.
+- `deepdirect_framework` folder contains the trained model weights and
+  the model constructing functions.
+- `deepdirect_paper` folder contains codes for building and training
+  models, and performing analysis in the deepdirect manuscript. The file
+  `ab_bind_data_extract.py` and `skempi_data_extract.py` contains code
+  for constructing training datasets for Deepdirect framework.
+  `train_step_1.py` contains code for training step 1 for the mutation
+  mutator. `final_model.py` contains code for training step 2 (final)
+  for the mutation mutator. `model_function.py` contains code for
+  constructing the Deepdirect framework.
+  `model_evaluation_application.py` contains code for model evaluation,
+  and teh application on Novavax-vaccine. `evolution_analysis.py`
+  contains code for performing evolution analysis.
 
 ## File source
 
 For files that are required as input in the code but not generated from
 other codes, please refer to the data availability section in the
 original paper.
+
+## Installation
+
+Clone repository:
+
+    git clone https://github.com/tianlt/deepdirect.git
+
+Create virtual environment:
+
+    conda create --name deepdirect python=3.6.8
+
+Activate virtual environment:
+
+    conda activate deepdirect
+
+Install dependencies:
+
+    pip install tensorflow==2.4.0
+    pip install keras==2.4.0
+
+## Running deepdirect
+
+### data processing
+
+Data to be input to deepdirect include sequence to be mutated `pre`, RBD
+site `rbd`, ligand-receptor index `same`, protein tertiary structure
+information `x`, `y` and `z`, and random noise `input_noi`. All input
+has to be `tf.float32` type.
+
+### Build deepdirect mutator with trained weights
+
+    aa_mutator = build_aa_mutator()
+
+    aa_mutator.load_weights(
+        'deepdirect_framework/model_i_weights.h5')
+
+### Binding affinity-guided mutation
+
+    aa_mutator.predict([pre, rbd, same, x, y, z, input_noi])
+
+### Additional information
+
+Expected outputs: mutated amino acid sequence
+
+Expected runtime for mutation: ~1 mintue
 
 ## Issues and bug reports
 
@@ -69,6 +112,5 @@ issues, bug reports, and comments.
 
 ## License
 
-deepdirect is distributed under the [GNU General Public License
-version 2
-(GPLv2)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
+deepdirect is distributed under the [GNU General Public License version
+2 (GPLv2)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).

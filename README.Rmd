@@ -46,6 +46,55 @@ The python file including all required deepdirect framework built function is ab
 ## File source
 For files that are required as input in the code but not generated from other codes, please refer to the data availability section in the original paper.
 
+## Installation
+Clone repository:
+
+```
+git clone https://github.com/tianlt/deepdirect.git
+```
+
+Create virtual environment:
+
+```
+conda create --name deepdirect python=3.6.8
+```
+
+Activate virtual environment:
+
+```
+conda activate deepdirect
+```
+
+Install dependencies:
+
+```
+pip install tensorflow==2.4.0
+pip install keras==2.4.0
+```
+
+## Running deepdirect
+### data processing
+Data to be input to deepdirect include sequence to be mutated `pre`, RBD site `rbd`, ligand-receptor index `same`, protein tertiary structure information `x`, `y` and `z`, and random noise `input_noi`. All input has to be `tf.float32` type.
+
+
+### Build deepdirect mutator with trained weights
+```
+aa_mutator = build_aa_mutator()
+
+aa_mutator.load_weights(
+    'deepdirect_framework/model_i_weights.h5')
+```
+
+### Binding affinity-guided mutation
+```
+aa_mutator.predict([pre, rbd, same, x, y, z, input_noi])
+```
+
+### Additional information
+Expected outputs: mutated amino acid sequence
+
+Expected runtime for mutation: ~1 mintue
+
 
 ## Issues and bug reports
 Please use <https://github.com/tianlt/deepdirect/issues> to submit issues, bug reports, and comments.
