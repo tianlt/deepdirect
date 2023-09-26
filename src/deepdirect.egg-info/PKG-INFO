@@ -1,0 +1,133 @@
+Metadata-Version: 2.1
+Name: deepdirect
+Version: 0.1.0
+Summary: In silico approach to generate mutations for protein complexes towards a specified direction (increase/decrease) in binding affinity.
+Home-page: https://github.com/Jappy0/deepdirect
+Author: Tian Lan and Penagyao Ping
+Author-email: lantian000@outlook.com, ping.pengyao@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text
+License-File: LICENSE
+
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# deepdirect
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Deepdirect is an in silico approach to generate mutations for protein
+complexes towards a specified direction (increase/decrease) in binding
+affinity.
+
+## System requirements and dependencies
+
+### Hardware Requirements
+
+`deepdirect` model is able to be trained and perform its operations on a
+standard computer.
+
+### OS Requirements
+
+The `deepdirect` model should be compatible with Windows, Mac, and Linux
+operating systems. The package has been tested on the following systems:
+
+- Linux 3.10.0
+- Windows 10
+
+### Dependencies
+
+`deepdirect` framework is built and trained on the `Tensorflow 2.4.0`
+and `Keras 2.4.0`.
+
+## Framework construction
+
+The python file including all required deepdirect framework built
+function is able to be downloaded from GitHub:
+`deepdirect_framework/model_function.py`
+
+## Data structure
+
+- `data` folder contains the original datasets used for building the
+  training datasets.
+- `deepdirect_framework` folder contains the trained model weights and
+  the model constructing functions.
+- `deepdirect_paper` folder contains codes for building and training
+  models, and performing analysis in the deepdirect manuscript. The file
+  `ab_bind_data_extract.py` and `skempi_data_extract.py` contains code
+  for constructing training datasets for Deepdirect framework.
+  `train_step_1.py` contains code for training step 1 for the mutation
+  mutator. `final_model.py` contains code for training step 2 (final)
+  for the mutation mutator. `model_function.py` contains code for
+  constructing the Deepdirect framework.
+  `model_evaluation_application.py` contains code for model evaluation,
+  and teh application on Novavax-vaccine. `evolution_analysis.py`
+  contains code for performing evolution analysis.
+
+## File source
+
+For files that are required as input in the code but not generated from
+other codes, please refer to the data availability section in the
+original paper.
+
+## Installation
+
+Clone repository:
+
+    git clone https://github.com/tianlt/deepdirect.git
+
+Create virtual environment:
+
+    conda create --name deepdirect python=3.6.8
+
+Activate virtual environment:
+
+    conda activate deepdirect
+
+Install dependencies:
+
+    pip install tensorflow==2.4.0
+    pip install keras==2.4.0
+
+## Running deepdirect
+
+### data processing
+
+Data to be input to deepdirect include sequence to be mutated `pre`, RBD
+site `rbd`, ligand-receptor index `same`, protein tertiary structure
+information `x`, `y` and `z`, and random noise `input_noi`. All input
+has to be `tf.float32` type.
+
+### Build deepdirect mutator with trained weights
+
+    aa_mutator = build_aa_mutator()
+
+    aa_mutator.load_weights(
+        'deepdirect_framework/model_i_weights.h5')
+
+### Binding affinity-guided mutation
+
+    aa_mutator.predict([pre, rbd, same, x, y, z, input_noi])
+
+### Additional information
+
+Expected outputs: mutated amino acid sequence
+
+Expected runtime for mutation: ~1 mintue
+
+## Issues and bug reports
+
+Please use <https://github.com/tianlt/deepdirect/issues> to submit
+issues, bug reports, and comments.
+
+## License
+
+deepdirect is distributed under the [GNU General Public License version
+2 (GPLv2)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html).
+
+
