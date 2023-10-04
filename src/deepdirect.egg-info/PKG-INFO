@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: deepdirect
-Version: 0.1.0
+Version: 0.1.6
 Summary: In silico approach to generate mutations for protein complexes towards a specified direction (increase/decrease) in binding affinity.
 Home-page: https://github.com/Jappy0/deepdirect
 Author: Tian Lan and Penagyao Ping
