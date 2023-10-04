@@ -6,6 +6,7 @@ setup.cfg
 src/deepdirect/__init__.py
 src/deepdirect/deepdirect.py
 src/deepdirect/model.py
+src/deepdirect/mutator.py
 src/deepdirect/utils.py
 src/deepdirect.egg-info/PKG-INFO
 src/deepdirect.egg-info/SOURCES.txt

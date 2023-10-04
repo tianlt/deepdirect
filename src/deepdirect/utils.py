@@ -59,9 +59,26 @@ def custom_logger(root_name, debug_mode) -> logging.Logger:
 
 def usage():
     # print(" ")
-    print("deepdirect Usage:")
+    print("deepdirect mutator required parameters:")
     # print("   Mandatory:")
-    # print("     -m|--module                   module selection")
+    print("     pre                   sequence before mutation")
+    print("     rbd                   receptor binding domian")
+    print("     same                  chain indicator")
+    print("     xx                    x axis of protein complex (x axis, yaxis, zaxis)")
+    print("     yy                    y axis of protein complex (x axis, yaxis, zaxis)")
+    print("     zz                    z axis of protein complex (x axis, yaxis, zaxis)")
+    print("     noise                 nosie")
+
+
+    # print("   Mandatory:")
+    # print("     -p|--pre                   sequence before mutation")
+    # print("     -r|--rbd                   receptor binding domian")
+    # print("     -s|--same                  chain indicator")
+    # print("     -x|--xx                    x axis of protein complex (x axis, yaxis, zaxis)")
+    # print("     -y|--yy                    y axis of protein complex (x axis, yaxis, zaxis)")
+    # print("     -z|--zz                    z axis of protein complex (x axis, yaxis, zaxis)")
+    # print("     -i|--input_noi             nosie")
+
     # print("   Modules: [mutator]")
     # # print(" ")
     # print("1. Using config file")

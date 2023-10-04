@@ -11,6 +11,7 @@ def main():
     # create logger
     logger = custom_logger("deepdirect", debug_mode=False)
     try:
+        # opts, args = getopt.getopt(argv, "p:r:s:x:y:z:i:hvo:", ["help", "version", "output="]) 
         opts, args = getopt.getopt(argv, "hvo:", ["help", "version", "output="]) 
 
         # aa_mutator.predict([pre, rbd, same, x, y, z, input_noi])        
@@ -32,13 +33,6 @@ def main():
             output = a
         else:
             assert False, "unhandled option"
-
-    relative_path_to_weight = 'weights/model_i_weights.h5'
-    weight_file_path = pkg_resources.resource_filename('deepdirect', relative_path_to_weight)
-
-    aa_mutator = build_aa_mutator()
-
-    aa_mutator.load_weights(weight_file_path)
 
 if __name__=="__main__":
     main()
