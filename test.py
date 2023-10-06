@@ -27,4 +27,4 @@ print(predict_result)
 
 r_pre = decode_seq_int(K.argmax(predict_result, axis=-1).numpy()[0])
 seq_pre = ''.join(np.array(r_pre))
-print(r_pre)
+print(seq_pre)

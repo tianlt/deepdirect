@@ -14,4 +14,5 @@ src/deepdirect.egg-info/entry_points.txt
 src/deepdirect.egg-info/not-zip-safe
 src/deepdirect.egg-info/requires.txt
 src/deepdirect.egg-info/top_level.txt
+src/deepdirect/weights/model_d_weights.h5
 src/deepdirect/weights/model_i_weights.h5
