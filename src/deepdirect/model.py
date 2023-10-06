@@ -18,6 +18,7 @@ from tensorflow.keras import layers
 from tensorflow.keras import backend as K
 # import pickle
 import numpy as np
+from tqdm import tqdm
 # import string
 
 def encode_seq_int(data= 'HELLOWORLD'):
@@ -26,6 +27,51 @@ def encode_seq_int(data= 'HELLOWORLD'):
     char_to_int = dict((c, i+1) for i, c in enumerate(seq_letter))
     integer_encoded = [char_to_int[char] for char in data]
     return integer_encoded
+
+def decode_seq_int(data=""):
+    aa_string = 'ARNDCEQGHILKMFPSTWYV'
+    int_to_char = dict((i + 1, c) for i, c in enumerate(aa_string))
+    character_encoded = [int_to_char[int + 20] if int == 0 else int_to_char[int] for int in data]
+    return character_encoded
+
+def dis_cal(a,b):
+    dis=sum((a-b)*(a-b))
+    return dis
+
+def find_nearest_aa(given, all, k):
+    nearest = []
+    for i in all:
+        nearest.append(dis_cal(given,i))
+    # result = [i for i, x in enumerate(np.argsort(nearest) <= k) if x]
+    result = list(np.argsort(nearest)[:k])
+    return result
+
+def find_rbd(aa_coordinate, k, chain_index, cutoff):
+    result = []
+    t_aa_coordinate = tqdm(aa_coordinate)
+    for i in t_aa_coordinate:
+        t_aa_coordinate.set_description("finding nearest aa")
+        result.append(find_nearest_aa(i, aa_coordinate, k))
+    nearest_list =  [i for i in enumerate(result)]
+    nearest_index = [j for i, j in nearest_list]
+    counter_list = []
+    m = 0
+    t_nearest_index = tqdm(nearest_index)
+    for i in t_nearest_index:
+        t_nearest_index.set_description("finding rbd aa")
+        counter = 0
+        n = 0
+        for j in i:
+            if chain_index[m] != chain_index[i[n]]:
+                counter = counter + 1
+            n = n + 1
+        ratio = counter / (n + 1)
+        counter_list.append(ratio)
+        m = m + 1
+    rbd_aa = [i for i, x in enumerate(np.array(counter_list) >= cutoff) if x]
+    rbd = np.zeros(len(aa_coordinate), dtype=int)
+    rbd[rbd_aa] = 1
+    return rbd
 
 def build_model(activation, latent_dim = 64, seq_num = 27, out_len = 5,f_num_1 = 64,
                         f_num_2 = 128,f_num_3 = 256,f_num_4 = 512,k_size = 5,drop_ratio = 0.2,
@@ -572,9 +618,6 @@ def generator_loss(fake, original_len, similarity):
     print('tf.reduce_mean(fake)')
     print(tf.reduce_mean(fake))
     return -50*(tf.reduce_mean(fake) - penalty / 5) #50
-
-
-
 
 def discriminator_loss_replace(real, fake):
     real_loss = tf.reduce_mean(real)
