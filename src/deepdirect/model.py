@@ -1,25 +1,8 @@
 import tensorflow as tf
-# import matplotlib.pyplot as plt
-
-# import datetime
-# import pandas as pd
-# import os
-# from collections import OrderedDict
 from tensorflow import keras
 from tensorflow.keras import layers
-# from tensorflow.keras.layers import Layer
-# from sklearn.model_selection import train_test_split
-# from nltk.tokenize import word_tokenize
-# from tensorflow.keras.preprocessing.text import one_hot
-# from tensorflow.keras.preprocessing.sequence import pad_sequences
-# import random
-# import time
-# from tensorflow.keras.callbacks import TensorBoard
 from tensorflow.keras import backend as K
-# import pickle
 import numpy as np
-from tqdm import tqdm
-# import string
 
 def encode_seq_int(data= 'HELLOWORLD'):
     aa_string = 'ARNDCEQGHILKMFPSTWYV'
@@ -48,17 +31,17 @@ def find_nearest_aa(given, all, k):
 
 def find_rbd(aa_coordinate, k, chain_index, cutoff):
     result = []
-    t_aa_coordinate = tqdm(aa_coordinate)
-    for i in t_aa_coordinate:
-        t_aa_coordinate.set_description("finding nearest aa")
+    # t_aa_coordinate = tqdm(aa_coordinate)
+    for i in aa_coordinate:
+        aa_coordinate.set_description("finding nearest aa")
         result.append(find_nearest_aa(i, aa_coordinate, k))
     nearest_list =  [i for i in enumerate(result)]
     nearest_index = [j for i, j in nearest_list]
     counter_list = []
     m = 0
-    t_nearest_index = tqdm(nearest_index)
-    for i in t_nearest_index:
-        t_nearest_index.set_description("finding rbd aa")
+    # t_nearest_index = tqdm(nearest_index)
+    for i in nearest_index:
+        nearest_index.set_description("finding rbd aa")
         counter = 0
         n = 0
         for j in i:

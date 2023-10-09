@@ -1,8 +1,4 @@
 from deepdirect.model import build_aa_mutator
-# from deepdirect.utils import custom_logger, usage
-# import sys, getopt
-# import deepdirect
-# import os
 import pkg_resources
 
 def predict(input_lst):

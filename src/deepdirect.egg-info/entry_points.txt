@@ -1,2 +1,0 @@
-[console_scripts]
-deepdirect = deepdirect.deepdirect:main

@@ -1,3 +1,2 @@
 tensorflow>=2.4.0
 Keras>=2.4.0
-colorlog==6.7.0

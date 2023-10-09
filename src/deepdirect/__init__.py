@@ -4,7 +4,7 @@
 # @Last Modified by:   Pengyao Ping
 # @Last Modified time: 2023-09-07 14:03:54
 
-__version__ = "0.2.3"
+__version__ = "0.2.5"
 
 import pkg_resources
 

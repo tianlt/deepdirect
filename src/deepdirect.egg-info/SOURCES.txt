@@ -3,14 +3,11 @@ README.md
 pyproject.toml
 setup.cfg
 src/deepdirect/__init__.py
-src/deepdirect/deepdirect.py
 src/deepdirect/model.py
 src/deepdirect/mutator.py
-src/deepdirect/utils.py
 src/deepdirect.egg-info/PKG-INFO
 src/deepdirect.egg-info/SOURCES.txt
 src/deepdirect.egg-info/dependency_links.txt
-src/deepdirect.egg-info/entry_points.txt
 src/deepdirect.egg-info/not-zip-safe
 src/deepdirect.egg-info/requires.txt
 src/deepdirect.egg-info/top_level.txt
