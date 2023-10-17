@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
@@ -191,7 +193,6 @@ class mutation_layer_block(layers.Layer):
 def build_aa_mutator(latent_dim_1 = 64,latent_dim_2 = 16,latent_dim_3 = 1,seq_num = 27,
             out_len = 5,f_num_1 = 64,f_num_2 = 128,f_num_3 = 256,f_num_4 = 512,k_size = 5,
             drop_ratio = 0.2,dense_1_num = 128,dense_2_num = 64,dense_3_num = 8,dense_4_num = 1):
-
     # Input_pre = keras.Input(shape=(None,), name='Input_pre')
     Input_pre = keras.Input(shape=(None,20), name='Input_pre') #@@@
     Input_rbd = keras.Input(shape=(None,1), name='Input_rbd')

@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 from deepdirect.model import build_aa_mutator
 import pkg_resources
 
