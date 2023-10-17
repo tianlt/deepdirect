@@ -2,6 +2,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # deepdirect
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10004503.svg)](https://doi.org/10.5281/zenodo.10004503)
 
 <!-- badges: start -->
 <!-- badges: end -->
