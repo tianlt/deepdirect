@@ -1,8 +1,22 @@
+Metadata-Version: 2.1
+Name: deepdirect
+Version: 0.2.5
+Summary: In silico approach to generate mutations for protein complexes towards a specified direction (increase/decrease) in binding affinity.
+Home-page: https://github.com/Jappy0/deepdirect
+Author: Tian Lan and Penagyao Ping
+Author-email: lantian000@outlook.com, ping.pengyao@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text
+License-File: LICENSE
+Requires-Dist: tensorflow==2.12.0
+Requires-Dist: Keras==2.12.0
+
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # deepdirect
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10004503.svg)](https://doi.org/10.5281/zenodo.10004503)
 
 <!-- badges: start -->
 <!-- badges: end -->

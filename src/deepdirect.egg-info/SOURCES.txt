@@ -1,0 +1,15 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+src/deepdirect/__init__.py
+src/deepdirect/model.py
+src/deepdirect/mutator.py
+src/deepdirect.egg-info/PKG-INFO
+src/deepdirect.egg-info/SOURCES.txt
+src/deepdirect.egg-info/dependency_links.txt
+src/deepdirect.egg-info/not-zip-safe
+src/deepdirect.egg-info/requires.txt
+src/deepdirect.egg-info/top_level.txt
+src/deepdirect/weights/model_d_weights.h5
+src/deepdirect/weights/model_i_weights.h5
