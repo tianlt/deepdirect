@@ -54,6 +54,7 @@ function is able to be downloaded from GitHub:
   `model_evaluation_application.py` contains code for model evaluation,
   and teh application on Novavax-vaccine. `evolution_analysis.py`
   contains code for performing evolution analysis.
+- `example` folder contains the Jupyter notebook example and the demo data.
 
 ## File source
 
