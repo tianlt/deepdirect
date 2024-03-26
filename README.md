@@ -120,4 +120,4 @@ deepdirect is distributed under the [GNU General Public License version
 ## Citation
 If deepdirect has assisted you with your work, please kindly cite our paper:
 
-Lan, T., Su, S., Ping, P. et al. Generating mutants of monotone affinity towards stronger protein complexes through adversarial learning. Nat Mach Intell 6, 315–325 (2024). https://doi.org/10.1038/s42256-024-00803-z
+Lan, T., Su, S., Ping, P. et al. Generating mutants of monotone affinity towards stronger protein complexes through adversarial learning. Nature Machine Intelligence 6, 315–325 (2024). https://doi.org/10.1038/s42256-024-00803-z
